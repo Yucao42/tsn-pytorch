@@ -1,12 +1,13 @@
 import argparse
 parser = argparse.ArgumentParser(description="PyTorch implementation of Temporal Segment Networks")
-parser.add_argument('dataset', type=str, choices=['ucf101', 'hmdb51', 'kinetics'])
-parser.add_argument('modality', type=str, choices=['RGB', 'Flow', 'RGBDiff'])
-parser.add_argument('train_list', type=str)
-parser.add_argument('val_list', type=str)
+
+#parser.add_argument('dataset', type=str, choices=['ucf101', 'hmdb51', 'kinetics'], default='kinetics')
+#parser.add_argument('modality', type=str, choices=['RGB', 'Flow', 'RGBDiff'], default='Flow')
+#parser.add_argument('train_list', type=str, default='')
+#parser.add_argument('val_list', type=str, default='')
 
 # ========================= Model Configs ==========================
-parser.add_argument('--arch', type=str, default="resnet101")
+parser.add_argument('--arch', type=str, default="BNInception")
 parser.add_argument('--num_segments', type=int, default=3)
 parser.add_argument('--consensus_type', type=str, default='avg',
                     choices=['avg', 'max', 'topk', 'identity', 'rnn', 'cnn'])
@@ -44,14 +45,14 @@ parser.add_argument('--eval-freq', '-ef', default=5, type=int,
 # ========================= Runtime Configs ==========================
 parser.add_argument('-j', '--workers', default=4, type=int, metavar='N',
                     help='number of data loading workers (default: 4)')
-parser.add_argument('--resume', default='', type=str, metavar='PATH',
+parser.add_argument('--resume', default='/home/yc3390/rgb.pth', type=str, metavar='PATH',
                     help='path to latest checkpoint (default: none)')
 parser.add_argument('-e', '--evaluate', dest='evaluate', action='store_true',
                     help='evaluate model on validation set')
 parser.add_argument('--snapshot_pref', type=str, default="")
 parser.add_argument('--start-epoch', default=0, type=int, metavar='N',
                     help='manual epoch number (useful on restarts)')
-parser.add_argument('--gpus', nargs='+', type=int, default=None)
+parser.add_argument('--gpus', nargs='+', type=int, default='0')
 parser.add_argument('--flow_prefix', default="", type=str)
 
 
