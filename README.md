@@ -1,5 +1,7 @@
 # TSN-Pytorch
 
+It is modified for easily used in pytorch. Also kinetics-pretrained caffe model is loaded. 
+
 *Now in experimental release, suggestions welcome*.
 
 **Note**: always use `git clone --recursive https://github.com/yjxiong/tsn-pytorch` to clone this project. 
